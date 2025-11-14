@@ -1,10 +1,9 @@
 import type { Metadata } from "next";
-import { Geist, Geist_Mono } from "next/font/google";
 import "./globals.css";
 import { JetBrains_Mono } from "next/font/google";
 
 const jetBrains = JetBrains_Mono({
-  variable: "--JetBrains Mono",
+  variable: "--JetBrains-Mono",
   subsets: ["latin"],
 });
 
@@ -20,7 +19,7 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en">
-      <body className={`${jetBrains.variable} antialiased`}>{children}</body>
+      <body className={`${jetBrains.className} antialiased`}>{children}</body>
     </html>
   );
 }
