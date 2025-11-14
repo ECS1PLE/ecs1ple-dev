@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import "./globals.css";
 import { JetBrains_Mono } from "next/font/google";
+import Header from "../components/Main/Header";
 
 const jetBrains = JetBrains_Mono({
   variable: "--JetBrains-Mono",
@@ -19,7 +20,10 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en">
-      <body className={`${jetBrains.className} antialiased`}>{children}</body>
+      <section className="w-[1200px] flex flex-column mx-auto">
+        <Header />
+        <body className={`${jetBrains.className} antialiased`}>{children}</body>
+      </section>
     </html>
   );
 }
