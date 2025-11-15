@@ -54,7 +54,7 @@ const MainBlock = () => {
         </div>
         <Description>
           I`m a pro at building web sites, web apps to telgram and create bots
-          to telegram.
+          to telegram, create design.
         </Description>
         <div className="flex gap-6 mt-6">
           {Socials.map((item, index) => (
