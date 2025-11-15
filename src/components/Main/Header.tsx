@@ -1,7 +1,7 @@
 import Button from "../UI/Button";
 import Logo from "../UI/Logo";
 import NavItem from "../UI/NavItem";
-import Span from "../UI/Span";
+import Span from "../Text/Span";
 
 const Header = () => {
   const NavItemsList = [
@@ -19,11 +19,11 @@ const Header = () => {
     },
   ];
   return (
-    <header className="py-8 xl:py-12 text-white flex w-[100%]">
+    <header className="py-8 xl:py-16 text-white flex w-[100%]">
       <div className="flex mx-auto justify-between items-center w-[100%]">
         <div className="flex">
           <Logo />
-          <Span fontSize={28} className="mt-auto">
+          <Span fontSize={28} enabled={true}>
             .
           </Span>
         </div>

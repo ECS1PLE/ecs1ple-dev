@@ -1,5 +1,10 @@
 import Image from "next/image";
+import MainBlock from "../components/Main/MainBlock";
 
 export default function Home() {
-  return <p></p>;
+  return (
+    <div className="flex">
+      <MainBlock />
+    </div>
+  );
 }
