@@ -1,4 +1,3 @@
-import Image from "next/image";
 import MainBlock from "../components/Main/MainBlock";
 
 export default function Home() {
