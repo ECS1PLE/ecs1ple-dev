@@ -31,7 +31,9 @@ const Header = () => {
           {NavItemsList.map((item, index) => (
             <NavItem key={index} href={item.href} text={item.text}></NavItem>
           ))}
-          <Button backgroundColor="#8783D1">Hire me</Button>
+          <Button backgroundColor="#8783D1" borderRadius={9999}>
+            Hire me
+          </Button>
         </div>
       </div>
     </header>
