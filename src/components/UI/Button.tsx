@@ -5,6 +5,7 @@ interface ButtonInterface {
   backgroundColor?: string;
   children: React.ReactNode;
   borderRadius?: number;
+  className?: string;
 }
 
 const Button: React.FC<ButtonInterface> = ({
@@ -12,12 +13,13 @@ const Button: React.FC<ButtonInterface> = ({
   backgroundColor,
   children,
   borderRadius = 0,
+  className,
 }) => {
   return (
     <Link href={href}>
       <button
-        className="justify-center flex items-center text-[#1C1C22] rounded-[9999px] px-[14px] py-[6px]
-        hover:cursor-pointer hover:text-white duration-300 ease-in-out"
+        className={`justify-center flex items-center text-[#1C1C22] rounded-[9999px] px-[14px] py-[6px]
+        hover:cursor-pointer hover:text-white duration-300 ease-in-out ${className}`}
         style={{ backgroundColor, borderRadius }}
       >
         {children}
