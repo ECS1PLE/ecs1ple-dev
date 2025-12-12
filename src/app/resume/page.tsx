@@ -53,12 +53,12 @@ const Resume = () => {
           <div className="flex flex-col gap-[20px]">
             <h2 className="text-[28px]">Hello, I`m Artyom Vavilov!</h2>
             <p>
-              Professional Frontend Developer specializing in commercial web
-              application development. I excel at translating complex business
-              requirements into scalable, performant, and user-centric solutions
-              using modern stacks like React, Next.js, and TypeScript. Committed
-              to writing clean, maintainable code and delivering projects that
-              drive client success through a structured, collaborative approach.
+              I build fast, engaging websites that work. As a professional
+              frontend developer, I bridge the gap between your vision and the
+              final product. I take your requirements, analyze the goals, and
+              develop a tailored solution focused on user experience,
+              performance, and results. Let's create something effective
+              together.
             </p>
           </div>
         )}
