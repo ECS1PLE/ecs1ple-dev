@@ -25,7 +25,7 @@ const Button: React.FC<ButtonInterface> = ({
       <button
         onClick={onClick}
         className={`justify-center flex items-center text-[#1C1C22] rounded-[9999px] px-[14px] py-[6px]
-          hover:cursor-pointer hover:text-white duration-300 ease-in-out ${className}`}
+          hover:cursor-pointer hover:text-white duration-300 ease-in-out ${className} `}
         style={{ backgroundColor, borderRadius }}
       >
         {children}

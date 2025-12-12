@@ -4,9 +4,14 @@ import Button from "@/src/components/UI/Button";
 import { useState } from "react";
 
 const Resume = () => {
-  const Buttons = [
+  const [about, setIsAbout] = useState(false);
+  const [skills, setIsSkills] = useState(false);
+  const [projects, setIsProjects] = useState(false);
+
+  const buttonConfigs = [
     {
       text: "About me",
+      active: about,
       onClick: () => {
         setIsAbout((prev) => !prev);
         setIsSkills(false);
@@ -15,6 +20,7 @@ const Resume = () => {
     },
     {
       text: "Skills",
+      active: skills,
       onClick: () => {
         setIsSkills((prev) => !prev);
         setIsAbout(false);
@@ -23,6 +29,7 @@ const Resume = () => {
     },
     {
       text: "My Projects",
+      active: projects,
       onClick: () => {
         setIsProjects((prev) => !prev);
         setIsAbout(false);
@@ -30,17 +37,16 @@ const Resume = () => {
       },
     },
   ];
-  const [about, setIsAbout] = useState(false);
-  const [skills, setIsSkills] = useState(false);
-  const [projects, setIsProjects] = useState(false);
 
   return (
     <div className="flex mt-6 md:gap-[200px]">
       <div className="flex flex-col gap-[20px]">
-        {Buttons.map((item, idx) => (
+        {buttonConfigs.map((item, idx) => (
           <Button
             backgroundColor="#8783D1"
-            className="w-[150px] h-[36px]"
+            className={`w-[150px] h-[36px] ${
+              item.active ? "text-white" : "text-[#1C1C22] hover:text-white"
+            }`}
             key={idx}
             onClick={item.onClick}
           >
