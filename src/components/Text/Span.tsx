@@ -6,8 +6,8 @@ interface SpanProps {
   children: string;
   enabled?: boolean;
   fontSize?: number;
-  speed?: number; // скорость печати
-  pause?: number; // пауза после полного текста
+  speed?: number;
+  pause?: number;
   className?: string;
 }
 
