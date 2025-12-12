@@ -49,7 +49,19 @@ const Resume = () => {
         ))}
       </div>
       <div className="flex">
-        {about && <div>123</div>}
+        {about && (
+          <div className="flex flex-col gap-[20px]">
+            <h2 className="text-[28px]">Hello, I`m Artyom Vavilov!</h2>
+            <p>
+              Professional Frontend Developer specializing in commercial web
+              application development. I excel at translating complex business
+              requirements into scalable, performant, and user-centric solutions
+              using modern stacks like React, Next.js, and TypeScript. Committed
+              to writing clean, maintainable code and delivering projects that
+              drive client success through a structured, collaborative approach.
+            </p>
+          </div>
+        )}
         {skills && <div>456</div>}
         {projects && <div>789</div>}
       </div>

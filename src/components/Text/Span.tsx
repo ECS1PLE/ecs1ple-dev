@@ -35,7 +35,6 @@ const Span: React.FC<SpanProps> = ({
             if (prev.length < children.length)
               return children.slice(0, prev.length + 1);
             else {
-              // пауза перед стиранием
               setTimeout(() => setIsDeleting(true), pause);
               return prev;
             }
