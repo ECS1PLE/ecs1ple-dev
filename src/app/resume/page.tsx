@@ -82,10 +82,6 @@ const Resume = () => {
       icon: <SiVuedotjs className="text-green-500" size={80} />,
     },
     {
-      name: "C++",
-      icon: <SiCplusplus className="text-blue-700" size={80} />,
-    },
-    {
       name: "Git",
       icon: <SiGit className="text-orange-600" size={80} />,
     },
@@ -96,6 +92,10 @@ const Resume = () => {
     {
       name: "Node.js",
       icon: <SiNodedotjs className="text-green-600" size={80} />,
+    },
+    {
+      name: "C++",
+      icon: <SiCplusplus className="text-blue-700" size={80} />,
     },
   ];
 
