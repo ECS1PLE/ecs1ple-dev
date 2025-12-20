@@ -1,14 +1,16 @@
 interface SkillBlockProps {
-  icon: React.ReactNode;
+  icon: React.ReactNode | any;
   text: string;
   className?: string;
 }
 
 const SkillBlock = ({ icon, text, className = "" }: SkillBlockProps) => {
   return (
-    <div className={`flex items-center gap-2 ${className}`}>
+    <div
+      className={`flex items-center gap-2 flex-col w-[198px] h-[198px] bg-[#0d0d0d] -z-1 rounded-[20px] p-[16px] ${className}`}
+    >
       {icon}
-      <span>{text}</span>
+      <span className="text-white text-[24px] mt-auto">{text}</span>
     </div>
   );
 };

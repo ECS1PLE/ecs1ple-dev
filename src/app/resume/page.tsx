@@ -1,6 +1,8 @@
 "use client";
 
 import Button from "@/src/components/UI/Button";
+import SkillBlock from "@/src/components/UI/SkillBLock";
+import { ChevronDown } from "lucide-react";
 import { useState } from "react";
 
 const Resume = () => {
@@ -68,7 +70,7 @@ const Resume = () => {
             </p>
           </div>
         )}
-        {skills && <div>456</div>}
+        {skills && <SkillBlock icon={<ChevronDown />} text="Next.Js" />}
         {projects && <div>789</div>}
       </div>
     </div>
