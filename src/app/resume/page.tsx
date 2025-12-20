@@ -2,7 +2,7 @@
 
 import Button from "@/src/components/UI/Button";
 import SkillBlock from "@/src/components/UI/SkillBLock";
-import { useState } from "react";
+import { useState, useEffect } from "react";
 
 import {
   SiReact,
@@ -21,6 +21,10 @@ const Resume = () => {
   const [about, setIsAbout] = useState(false);
   const [skills, setIsSkills] = useState(false);
   const [projects, setIsProjects] = useState(false);
+
+  useEffect(() => {
+    setIsAbout(true);
+  }, []);
 
   const buttonConfigs = [
     {
