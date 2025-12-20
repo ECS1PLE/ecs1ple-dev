@@ -2,8 +2,20 @@
 
 import Button from "@/src/components/UI/Button";
 import SkillBlock from "@/src/components/UI/SkillBLock";
-import { ChevronDown } from "lucide-react";
 import { useState } from "react";
+
+import {
+  SiReact,
+  SiNextdotjs,
+  SiTypescript,
+  SiJavascript,
+  SiTailwindcss,
+  SiVuedotjs,
+  SiCplusplus,
+  SiGit,
+  SiDocker,
+  SiNodedotjs,
+} from "react-icons/si";
 
 const Resume = () => {
   const [about, setIsAbout] = useState(false);
@@ -40,6 +52,49 @@ const Resume = () => {
     },
   ];
 
+  const technologies = [
+    {
+      name: "Next.js",
+      icon: <SiNextdotjs className="text-black" size={80} />,
+    },
+    {
+      name: "React",
+      icon: <SiReact className="text-blue-500" size={80} />,
+    },
+    {
+      name: "Tailwind",
+      icon: <SiTailwindcss className="text-teal-500" size={80} />,
+    },
+    {
+      name: "TypeScript",
+      icon: <SiTypescript className="text-blue-600" size={80} />,
+    },
+    {
+      name: "JavaScript",
+      icon: <SiJavascript className="text-yellow-500" size={80} />,
+    },
+    {
+      name: "Vue",
+      icon: <SiVuedotjs className="text-green-500" size={80} />,
+    },
+    {
+      name: "C++",
+      icon: <SiCplusplus className="text-blue-700" size={80} />,
+    },
+    {
+      name: "Git",
+      icon: <SiGit className="text-orange-600" size={80} />,
+    },
+    {
+      name: "Docker",
+      icon: <SiDocker className="text-blue-400" size={80} />,
+    },
+    {
+      name: "Node.js",
+      icon: <SiNodedotjs className="text-green-600" size={80} />,
+    },
+  ];
+
   return (
     <div className="flex mt-6 md:gap-[200px]">
       <div className="flex flex-col gap-[20px]">
@@ -59,7 +114,7 @@ const Resume = () => {
       <div className="flex">
         {about && (
           <div className="flex flex-col gap-[20px]">
-            <h2 className="text-[28px]">Hello, I`m Artyom Vavilov!</h2>
+            <h2 className="text-[28px]">Hello, I'm Artyom Vavilov!</h2>
             <p>
               I build fast, engaging websites that work. As a professional
               frontend developer, I bridge the gap between your vision and the
@@ -70,7 +125,18 @@ const Resume = () => {
             </p>
           </div>
         )}
-        {skills && <SkillBlock icon={<ChevronDown />} text="Next.Js" />}
+        {skills && (
+          <div className="flex flex-wrap gap-[12px]">
+            {technologies.map((item, index) => (
+              <SkillBlock
+                key={index}
+                icon={item.icon}
+                text={item.name}
+                className="items-center gap-[10px]"
+              />
+            ))}
+          </div>
+        )}
         {projects && <div>789</div>}
       </div>
     </div>
