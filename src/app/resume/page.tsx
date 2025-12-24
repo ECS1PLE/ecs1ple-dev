@@ -1,7 +1,7 @@
 "use client";
 
 import Button from "@/src/components/UI/Button";
-import SkillBlock from "@/src/components/UI/SkillBLock";
+import SkillBlock from "@/src/components/Blocks/SkillBLock";
 import { useState, useEffect } from "react";
 
 import {
@@ -16,6 +16,7 @@ import {
   SiDocker,
   SiNodedotjs,
 } from "react-icons/si";
+import ProjectBlock from "@/src/components/Blocks/ProjectBlock";
 
 const Resume = () => {
   const [about, setIsAbout] = useState(false);
@@ -99,9 +100,18 @@ const Resume = () => {
     },
   ];
 
+  const projects = [
+    {
+      title: "Svetlana Minina",
+      description:
+        "Landing for Buisness Coach. Used Technologies: React, TypeScript, CSS",
+      link: "https://svetlana-minina.vercel.app/",
+    },
+  ];
   return (
-    <div className="flex mt-6 md:gap-[200px]">
-      <div className="flex flex-col gap-[20px]">
+    <div className="flex mt-6 gap-[100px] relative w-full">
+      {" "}
+      <div className="flex flex-col gap-[20px] flex-shrink-0">
         {buttonConfigs.map((item, idx) => (
           <Button
             backgroundColor="#8783D1"
@@ -115,9 +125,9 @@ const Resume = () => {
           </Button>
         ))}
       </div>
-      <div className="flex">
+      <div className="flex-grow min-w-0">
         {about && (
-          <div className="flex flex-col gap-[20px]">
+          <div className="flex flex-col gap-[20px] w-full">
             <h2 className="text-[28px]">Hello, I'm Artyom Vavilov!</h2>
             <p>
               I build fast, engaging websites that work. As a professional
@@ -130,7 +140,7 @@ const Resume = () => {
           </div>
         )}
         {skills && (
-          <div className="flex flex-wrap gap-[12px]">
+          <div className="flex flex-wrap gap-[12px] w-full">
             {technologies.map((item, index) => (
               <SkillBlock
                 key={index}
@@ -141,7 +151,11 @@ const Resume = () => {
             ))}
           </div>
         )}
-        {projects && <div>789</div>}
+        {projects && (
+          <div className="w-full">
+            <ProjectBlock title="Test" description="Test" link="/work" />
+          </div>
+        )}
       </div>
     </div>
   );
