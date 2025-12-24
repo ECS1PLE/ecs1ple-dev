@@ -100,12 +100,17 @@ const Resume = () => {
     },
   ];
 
-  const projects = [
+  const myProjects = [
     {
       title: "Svetlana Minina",
       description:
         "Landing for Buisness Coach. Used Technologies: React, TypeScript, CSS",
       link: "https://svetlana-minina.vercel.app/",
+    },
+    {
+      title: "ecs1ple.dev",
+      description:
+        "My personal webSite. Used Technologies: NextJs, TypeScript, Tailwind",
     },
   ];
   return (
