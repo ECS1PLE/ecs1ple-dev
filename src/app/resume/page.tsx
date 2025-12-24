@@ -15,8 +15,10 @@ import {
   SiGit,
   SiDocker,
   SiNodedotjs,
+  SiRedux,
 } from "react-icons/si";
 import ProjectBlock from "@/src/components/Blocks/ProjectBlock";
+import Description from "@/src/components/Text/Description";
 
 const Resume = () => {
   const [about, setIsAbout] = useState(false);
@@ -83,6 +85,10 @@ const Resume = () => {
       icon: <SiVuedotjs className="text-green-500" size={80} />,
     },
     {
+      name: "Redux Toolkit",
+      icon: <SiRedux className="text-purple-600" size={80} />,
+    },
+    {
       name: "Git",
       icon: <SiGit className="text-orange-600" size={80} />,
     },
@@ -102,20 +108,84 @@ const Resume = () => {
 
   const myProjects = [
     {
-      title: "Svetlana Minina",
+      title: "Svetlana Minina — Business Coach Landing",
       description:
-        "Landing for Buisness Coach. Used Technologies: React, TypeScript, CSS",
+        "Responsive landing page for a business coach with contact form and basic SEO optimizations. Built with React and TypeScript; focused on accessibility and performance.",
       link: "https://svetlana-minina.vercel.app/",
+      haveLink: true,
     },
     {
-      title: "ecs1ple.dev",
+      title: "ecs1ple.dev — Personal Website",
       description:
-        "My personal webSite. Used Technologies: NextJs, TypeScript, Tailwind",
+        "My personal portfolio and blog showcasing projects, experiments and articles. Built with Next.js, TypeScript and Tailwind CSS.",
+      link: "https://ecs1ple-dev.vercel.app/",
+      haveLink: false,
+    },
+    {
+      title: "StudyHelper (in development)",
+      description:
+        "A collaborative platform for students to share solutions and study materials. Features planned: authentication, content tagging, and moderation. Stack: Next.js, Tailwind, TypeScript, Node.js, Docker.",
+      haveLink: false,
+    },
+    {
+      title: "Aeterna — AI Website Builder",
+      description:
+        "A product concept and prototype for generating complete websites using AI. Focused on automating layout, copy and assets generation. Built with Next.js, TypeScript and Tailwind CSS.",
+      link: "https://aeterna-blue.vercel.app/",
+      haveLink: true,
+    },
+    {
+      title: "Aeterna SSO",
+      description:
+        "Single Sign-On service for the Aeterna platform: authentication flow and session management for multi-app integrations.",
+      link: "https://aeterna-sso.vercel.app/",
+      haveLink: true,
+    },
+    {
+      title: "StellarBurger — Order Management Web App",
+      description:
+        "A web application to optimize customer orders and restaurant workflows. Implemented with React, TypeScript, Redux and Tailwind CSS.",
+      haveLink: true,
+      link: "https://stellar-burger-psi.vercel.app/",
+    },
+    {
+      title: "Telegram Gift Roulette",
+      description:
+        "A Telegram bot that runs a random gift roulette for chat participants. Implemented in plain JavaScript and published on GitHub.",
+      link: "https://github.com/ECS1PLE/tg-gift-bot",
+      haveLink: true,
+    },
+    {
+      title: "Pet Weather App",
+      description:
+        "A small weather application built as a learning project. Uses public weather APIs to show forecasts and alerts.",
+      link: "https://github.com/ECS1PLE/Weather-App",
+      haveLink: true,
+    },
+    {
+      title: "Pet Shop App",
+      description:
+        "An e-commerce style demo for a pet shop. Built with React, TypeScript and Redux Toolkit; includes product listing and cart functionality.",
+      link: "https://github.com/ECS1PLE/Weather-App",
+      haveLink: true,
+    },
+    {
+      title: "First Portfolio",
+      description:
+        "My first public portfolio site built to learn React and basic deployment workflows.",
+      link: "https://github.com/ECS1PLE/Portfolio",
+      haveLink: true,
+    },
+    {
+      title: "Personal Task Manager",
+      description:
+        "A lightweight task manager app to keep track of personal to-dos. Built with React, TypeScript and Redux Toolkit.",
+      haveLink: false,
     },
   ];
+
   return (
     <div className="flex mt-6 gap-[100px] relative w-full">
-      {" "}
       <div className="flex flex-col gap-[20px] flex-shrink-0">
         {buttonConfigs.map((item, idx) => (
           <Button
@@ -157,8 +227,15 @@ const Resume = () => {
           </div>
         )}
         {projects && (
-          <div className="w-full">
-            <ProjectBlock title="Test" description="Test" link="/work" />
+          <div className="w-full flex flex-col gap-4 max-h-[700px] overflow-y-scroll custom-scrollbar">
+            {myProjects.map((item, index) => (
+              <ProjectBlock
+                key={index}
+                title={item.title}
+                description={item.description}
+                link={item?.link}
+              />
+            ))}
           </div>
         )}
       </div>

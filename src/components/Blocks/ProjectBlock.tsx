@@ -5,7 +5,7 @@ import Text from "../Text/Text";
 interface ProjectBlockInterface {
   title: string;
   description: string;
-  link: string;
+  link?: string;
 }
 
 const ProjectBlock: React.FC<ProjectBlockInterface> = ({
@@ -16,10 +16,10 @@ const ProjectBlock: React.FC<ProjectBlockInterface> = ({
   return (
     <div className="flex flex-col gap-4 bg-[#0d0d0d] p-4 rounded-[16px]">
       <Text>{title}</Text>
-      <Description>{description}</Description>
-      <div className="flex">
+      <Description className="!max-w-[80%]">{description}</Description>
+      <div className="flex gap-1">
         <p>Link:</p>
-        <Link href={link}>{link}</Link>
+        {link ? <Link href={link}>{link}</Link> : <></>}
       </div>
     </div>
   );
