@@ -16,3 +16,5 @@ const SkillBlock = ({ icon, text, className = "" }: SkillBlockProps) => {
 };
 
 export default SkillBlock;
+
+//добавить функционал нажатия на карточку(ее переворот и краткое описание скила)
