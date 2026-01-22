@@ -20,7 +20,7 @@ const Header = () => {
   ];
   return (
     <header className="py-8 xl:py-16 text-white flex w-[100%]">
-      <div className="flex mx-auto justify-between items-center w-[100%]">
+      <div className="flex flex-col sm:flex-row mx-auto justify-between items-center w-[100%]">
         <div className="flex">
           <Logo />
           <Span fontSize={28} enabled={true}>

@@ -18,7 +18,6 @@ import {
   SiRedux,
 } from "react-icons/si";
 import ProjectBlock from "@/src/components/Blocks/ProjectBlock";
-import Description from "@/src/components/Text/Description";
 
 const Resume = () => {
   const [about, setIsAbout] = useState(false);

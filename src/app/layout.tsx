@@ -20,7 +20,7 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en">
-      <section className="w-[1200px] flex flex-col mx-auto">
+      <section className="w-screen sm:w-[1200px] flex flex-col mx-auto">
         <Header />
         <body className={`${jetBrains.className} antialiased`}>{children}</body>
       </section>

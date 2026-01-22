@@ -42,11 +42,11 @@ const Result: React.FC<ResultInterface> = ({
   }, [target, duration]);
 
   return (
-    <div className="flex gap-3">
-      <h2 className="text-4xl xl:text-6xl font-extrabold">
+    <div className="flex sm:flex-row flex-col gap-2 sm:gap-3">
+      <h2 className="text-4xl xl:text-6xl font-extrabold sm:text-left text-center">
         {displayCount.toLocaleString()}
       </h2>
-      <p className="max-w-[100px] leading-snug text-white/80 my-auto">
+      <p className="sm:max-w-[100px] leading-snug text-white/80 my-auto sm:text-left text-center">
         {title}
       </p>
     </div>

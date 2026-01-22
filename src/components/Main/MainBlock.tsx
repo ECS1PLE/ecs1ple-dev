@@ -38,13 +38,13 @@ const MainBlock = () => {
     },
   ];
   return (
-    <div className="flex flex-col w-[100%]">
-      <div className="flex flex-col text-center xl:text-left pt-8 gap-6 mt-6 w-[60%]">
+    <div className="flex flex-col sm:w-[100%]">
+      <div className="flex flex-col text-center sm:text-left pt-8 gap-6 mt-6 w-[100%] sm:w-[60%]">
         <SubTitle>Frontend Developer</SubTitle>
         <div className="flex flex-col gap-0">
-          <Text className="text-[80px]">Hello, I am</Text>
+          <Text className="text-[40px] sm:text-[80px]">Hello, I am</Text>
           <Span
-            className="text-[80px] leading-[80px] h-[80px]"
+            className="text-[40px] mx-auto sm:mx-0 sm:text-[80px] leading-[80px] h-[80px]"
             enabled={true}
             speed={100}
             pause={1000}
@@ -56,13 +56,13 @@ const MainBlock = () => {
           I`m a pro at building web sites, web apps to telgram and create bots
           to telegram, create design.
         </Description>
-        <div className="flex gap-6 mt-6">
+        <div className="flex mx-auto sm:mx-0 gap-6 mt-6">
           {Socials.map((item, index) => (
             <Social key={index} href={item.href} icon={item.icon}></Social>
           ))}
         </div>
       </div>
-      <div className="mt-20 flex justify-between w-[100%]">
+      <div className="mt-10 sm:mt-20 flex gap-[8px] sm:gap-0 justify-between flex-col sm:flex-row sm:w-[100%] flex-wrap mx-auto sm:mx-0">
         {Results.map((item, index) => (
           <Result key={index} count={item.count} title={item.title}></Result>
         ))}
