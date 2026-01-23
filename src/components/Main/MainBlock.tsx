@@ -1,3 +1,5 @@
+"use client";
+
 import { GithubIcon } from "lucide-react";
 import Description from "../Text/Description";
 import Span from "../Text/Span";
@@ -6,6 +8,7 @@ import Text from "../Text/Text";
 import Social from "../UI/Social";
 import { BsTelegram } from "react-icons/bs";
 import Result from "../UI/Result";
+import { useEffect } from "react";
 
 const MainBlock = () => {
   const Socials = [

@@ -1,0 +1,4 @@
+# Node/Next build outputs and local backup
+node_modules/
+.next/
+repo-backup.git/

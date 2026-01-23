@@ -15,7 +15,7 @@ const Header = () => {
     },
     {
       text: "Work",
-      href: "/works",
+      href: "/work",
     },
   ];
   return (
