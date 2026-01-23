@@ -13,10 +13,6 @@ const Header = () => {
       text: "Resume",
       href: "/resume",
     },
-    {
-      text: "Work",
-      href: "/work",
-    },
   ];
   return (
     <header className="py-8 xl:py-16 text-white flex w-[100%]">
@@ -31,7 +27,7 @@ const Header = () => {
           {NavItemsList.map((item, index) => (
             <NavItem key={index} href={item.href} text={item.text}></NavItem>
           ))}
-          <Button backgroundColor="#8783D1" borderRadius={9999}>
+          <Button backgroundColor="#8783D1" borderRadius={9999} href="/work">
             Hire me
           </Button>
         </div>
