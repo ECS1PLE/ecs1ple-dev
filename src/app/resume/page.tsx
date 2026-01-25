@@ -16,6 +16,7 @@ import {
   SiDocker,
   SiNodedotjs,
   SiRedux,
+  SiPython,
 } from "react-icons/si";
 import ProjectBlock from "@/src/components/Blocks/ProjectBlock";
 
@@ -102,6 +103,10 @@ const Resume = () => {
     {
       name: "C++",
       icon: <SiCplusplus className="text-blue-700" size={80} />,
+    },
+    {
+      name: "Python",
+      icon: <SiPython className="text-yellow-500" size={80} />,
     },
   ];
 
