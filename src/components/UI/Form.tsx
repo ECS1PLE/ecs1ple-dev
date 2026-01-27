@@ -23,7 +23,7 @@ const Form = () => {
   return (
     <form
       onSubmit={handleSubmit(onSubmit)}
-      className="flex flex-col gap-[16px] w-[600px] mx-auto flex bg-[#0d0d0d] rounded-[20px] p-[16px] relative"
+      className="flex flex-col gap-[16px] w-[100%] sm:w-[600px] mx-auto flex bg-[#0d0d0d] rounded-[20px] p-[16px] relative"
     >
       <h3 className="text-[24px]">Оставить заявку</h3>
       <div className="flex w-[100%] gap-5">
