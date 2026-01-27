@@ -10,6 +10,7 @@ interface ButtonInterface {
   borderRadius?: number;
   className?: string;
   onClick?: () => void;
+  type?: "submit" | undefined;
 }
 
 const Button: React.FC<ButtonInterface> = ({
@@ -19,10 +20,12 @@ const Button: React.FC<ButtonInterface> = ({
   borderRadius = 0,
   className,
   onClick,
+  type,
 }) => {
   if (onClick) {
     return (
       <button
+        type={type}
         onClick={onClick}
         className={`justify-center flex items-center text-[#1C1C22] rounded-[9999px] px-[14px] py-[6px]
           hover:cursor-pointer hover:text-white duration-300 ease-in-out ${className} `}
@@ -33,9 +36,23 @@ const Button: React.FC<ButtonInterface> = ({
     );
   }
 
+  if (type) {
+    return (
+      <button
+        type={type}
+        className={`justify-center flex items-center text-[#1C1C22] rounded-[9999px] px-[14px] py-[6px]
+          hover:cursor-pointer hover:text-white duration-300 ease-in-out ${className}`}
+        style={{ backgroundColor, borderRadius }}
+      >
+        {children}
+      </button>
+    );
+  }
+
   return (
     <Link href={href || "/"}>
       <button
+        type={type}
         className={`justify-center flex items-center text-[#1C1C22] rounded-[9999px] px-[14px] py-[6px]
           hover:cursor-pointer hover:text-white duration-300 ease-in-out ${className}`}
         style={{ backgroundColor, borderRadius }}
