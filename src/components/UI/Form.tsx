@@ -27,15 +27,18 @@ const Form = () => {
     >
       <h3 className="text-[24px]">Оставить заявку</h3>
       <div className="flex w-[100%] gap-5">
-        <Input {...register("name")} placeholder="Name" />
-        <Input {...register("fullname")} placeholder="Fullname" />
+        <Input {...register("name", { required: true })} placeholder="Name" />
+        <Input
+          {...register("fullname", { required: true })}
+          placeholder="Fullname"
+        />
       </div>
       <div className="flex w-[100%] gap-5">
-        <Input {...register("email")} placeholder="Email" />
-        <Input {...register("phone")} placeholder="Phone" />
+        <Input {...register("email", { required: true })} placeholder="Email" />
+        <Input {...register("phone", { required: true })} placeholder="Phone" />
       </div>
       <Input
-        {...register("telegram")}
+        {...register("telegram", { required: true })}
         placeholder="Telegram"
         className="w-[100%]"
       />
