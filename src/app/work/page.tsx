@@ -1,5 +1,7 @@
+import Form from "@/src/components/UI/Form";
+
 const Work = () => {
-  return 123;
+  return <Form></Form>;
 };
 
 export default Work;
