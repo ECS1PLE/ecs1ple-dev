@@ -1,5 +1,6 @@
 "use client";
 
+import { useState } from "react";
 import { useForm } from "react-hook-form";
 import Input from "./Input";
 import Button from "./Button";
@@ -13,11 +14,32 @@ type FormData = {
 };
 
 const Form = () => {
-  const { register, handleSubmit } = useForm<FormData>();
+  const { register, handleSubmit, reset } = useForm<FormData>();
+  const [status, setStatus] = useState<"idle" | "loading" | "success" | "error">("idle");
+  const [message, setMessage] = useState("");
 
-  const onSubmit = (data: FormData) => {
-    console.log("submit работает");
-    console.log(data);
+  const onSubmit = async (data: FormData) => {
+    setStatus("loading");
+    setMessage("");
+    try {
+      const res = await fetch("/api/telegram", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify(data),
+      });
+      const json = await res.json();
+      if (!res.ok) {
+        setStatus("error");
+        setMessage(json.error ?? "Ошибка при отправке");
+        return;
+      }
+      setStatus("success");
+      setMessage("Заявка отправлена, скоро свяжемся!");
+      reset();
+    } catch {
+      setStatus("error");
+      setMessage("Ошибка сети. Попробуйте позже.");
+    }
   };
 
   return (
@@ -42,8 +64,22 @@ const Form = () => {
         placeholder="Telegram"
         className="w-[100%]"
       />
-      <Button type="submit" backgroundColor="#8783D1" className="mx-auto">
-        Оставить заявку
+      {message && (
+        <p
+          className={`text-center text-[14px] ${
+            status === "success" ? "text-green-400" : "text-red-400"
+          }`}
+        >
+          {message}
+        </p>
+      )}
+      <Button
+        type="submit"
+        backgroundColor="#8783D1"
+        className="mx-auto"
+        disabled={status === "loading"}
+      >
+        {status === "loading" ? "Отправка…" : "Оставить заявку"}
       </Button>
     </form>
   );

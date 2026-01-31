@@ -11,6 +11,7 @@ interface ButtonInterface {
   className?: string;
   onClick?: () => void;
   type?: "submit" | undefined;
+  disabled?: boolean;
 }
 
 const Button: React.FC<ButtonInterface> = ({
@@ -21,12 +22,14 @@ const Button: React.FC<ButtonInterface> = ({
   className,
   onClick,
   type,
+  disabled,
 }) => {
   if (onClick) {
     return (
       <button
         type={type}
         onClick={onClick}
+        disabled={disabled}
         className={`justify-center flex items-center text-[#1C1C22] rounded-[9999px] px-[14px] py-[6px]
           hover:cursor-pointer hover:text-white duration-300 ease-in-out ${className} `}
         style={{ backgroundColor, borderRadius }}
@@ -40,6 +43,7 @@ const Button: React.FC<ButtonInterface> = ({
     return (
       <button
         type={type}
+        disabled={disabled}
         className={`justify-center flex items-center text-[#1C1C22] rounded-[9999px] px-[14px] py-[6px]
           hover:cursor-pointer hover:text-white duration-300 ease-in-out ${className}`}
         style={{ backgroundColor, borderRadius }}
@@ -53,6 +57,7 @@ const Button: React.FC<ButtonInterface> = ({
     <Link href={href || "/"}>
       <button
         type={type}
+        disabled={disabled}
         className={`justify-center flex items-center text-[#1C1C22] rounded-[9999px] px-[14px] py-[6px]
           hover:cursor-pointer hover:text-white duration-300 ease-in-out ${className}`}
         style={{ backgroundColor, borderRadius }}
