@@ -55,9 +55,13 @@ export async function POST(request: Request) {
     if (!data.ok) {
       const reason = data.description ?? "Неизвестная ошибка Telegram";
       console.error("Telegram API error:", data);
+      const hint =
+        reason === "Not Found"
+          ? " Проверьте TELEGRAM_BOT_TOKEN: токен неверный или бот удалён. Получите новый токен у @BotFather."
+          : "";
       return NextResponse.json(
         {
-          error: "Не удалось отправить сообщение в Telegram",
+          error: "Не удалось отправить сообщение в Telegram" + hint,
           reason,
         },
         { status: 502 }
