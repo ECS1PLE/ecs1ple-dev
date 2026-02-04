@@ -64,15 +64,6 @@ const Form = () => {
         placeholder="Telegram"
         className="w-[100%]"
       />
-      {message && (
-        <p
-          className={`text-center text-[14px] ${
-            status === "success" ? "text-green-400" : "text-red-400"
-          }`}
-        >
-          {message}
-        </p>
-      )}
       <Button
         type="submit"
         backgroundColor="#8783D1"
