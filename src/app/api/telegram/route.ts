@@ -12,8 +12,8 @@ export async function POST(request: Request) {
     const body = await request.json();
     const { name, fullname, email, phone, telegram } = body;
 
-    const botToken = process.env.TELEGRAM_BOT_TOKEN;
-    const chatId = process.env.TELEGRAM_CHAT_ID;
+    const botToken = process.env.TELEGRAM_BOT_TOKEN?.trim();
+    const chatId = process.env.TELEGRAM_CHAT_ID?.trim();
 
     if (!botToken || !chatId) {
       return NextResponse.json(
@@ -22,6 +22,21 @@ export async function POST(request: Request) {
             "Сервер не настроен: добавьте TELEGRAM_BOT_TOKEN и TELEGRAM_CHAT_ID в настройках Vercel (Environment Variables).",
         },
         { status: 500 }
+      );
+    }
+
+    const baseUrl = `${TELEGRAM_API}${botToken}`;
+
+    const meRes = await fetch(`${baseUrl}/getMe`);
+    const meData = (await meRes.json()) as { ok: boolean; description?: string };
+    if (!meData.ok) {
+      return NextResponse.json(
+        {
+          error:
+            "Неверный TELEGRAM_BOT_TOKEN. Зайдите в @BotFather → выберите бота → API Token, скопируйте токен заново и вставьте в переменные Vercel без пробелов. Затем сделайте Redeploy.",
+          reason: meData.description ?? "Not Found",
+        },
+        { status: 502 }
       );
     }
 
@@ -35,8 +50,7 @@ export async function POST(request: Request) {
       `*Telegram:* ${escapeMarkdown(telegram)}`,
     ].join("\n");
 
-    const url = `${TELEGRAM_API}${botToken}/sendMessage`;
-    const response = await fetch(url, {
+    const response = await fetch(`${baseUrl}/sendMessage`, {
       method: "POST",
       headers: { "Content-Type": "application/json" },
       body: JSON.stringify({
