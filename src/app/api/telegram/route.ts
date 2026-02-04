@@ -1,6 +1,11 @@
 import { NextResponse } from "next/server";
 
-const TELEGRAM_API = "https://api.telegram.org/bot";
+const TELEGRAM_API = "https://api.telegram.org/bot/";
+
+function escapeMarkdown(s: string | undefined): string {
+  if (s == null || s === "") return "—";
+  return String(s).replace(/([_*\[\]`])/g, "\\$1");
+}
 
 export async function POST(request: Request) {
   try {
@@ -14,7 +19,7 @@ export async function POST(request: Request) {
       return NextResponse.json(
         {
           error:
-            "Сервер не настроен: добавьте TELEGRAM_BOT_TOKEN и TELEGRAM_CHAT_ID в .env.local",
+            "Сервер не настроен: добавьте TELEGRAM_BOT_TOKEN и TELEGRAM_CHAT_ID в настройках Vercel (Environment Variables).",
         },
         { status: 500 }
       );
@@ -23,11 +28,11 @@ export async function POST(request: Request) {
     const text = [
       "📋 *Новая заявка с сайта*",
       "",
-      `*Имя:* ${name ?? "—"}`,
-      `*Фамилия:* ${fullname ?? "—"}`,
-      `*Email:* ${email ?? "—"}`,
-      `*Телефон:* ${phone ?? "—"}`,
-      `*Telegram:* ${telegram ?? "—"}`,
+      `*Имя:* ${escapeMarkdown(name)}`,
+      `*Фамилия:* ${escapeMarkdown(fullname)}`,
+      `*Email:* ${escapeMarkdown(email)}`,
+      `*Телефон:* ${escapeMarkdown(phone)}`,
+      `*Telegram:* ${escapeMarkdown(telegram)}`,
     ].join("\n");
 
     const url = `${TELEGRAM_API}${botToken}/sendMessage`;
@@ -41,12 +46,20 @@ export async function POST(request: Request) {
       }),
     });
 
-    const data = await response.json();
+    const data = (await response.json()) as {
+      ok: boolean;
+      description?: string;
+      error_code?: number;
+    };
 
     if (!data.ok) {
+      const reason = data.description ?? "Неизвестная ошибка Telegram";
       console.error("Telegram API error:", data);
       return NextResponse.json(
-        { error: "Не удалось отправить сообщение в Telegram" },
+        {
+          error: "Не удалось отправить сообщение в Telegram",
+          reason,
+        },
         { status: 502 }
       );
     }

@@ -30,7 +30,8 @@ const Form = () => {
       const json = await res.json();
       if (!res.ok) {
         setStatus("error");
-        setMessage(json.error ?? "Ошибка при отправке");
+        const detail = json.reason ? ` (${json.reason})` : "";
+        setMessage((json.error ?? "Ошибка при отправке") + detail);
         return;
       }
       setStatus("success");
